@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-Do List</title>
+    <style>
+     body{
+        margin:0;
+        background-color: #616091;
+     }
+     h1{
+        color:#fb97ad;
+        text-align: center;
+     }
+     div{
+        margin:16px;
+        padding:8px;
+        background-color: #04041c;
+        box-shadow: 2px 5px 5px rgba(0,0,0,0.7);
+        border:none;
+        border-radius: 25px;
+     }
+     #container{
+        margin:24px;
+        padding:24px;
+        color:white;
+        background-color: #04041c;
+        text-align: center;
+     }
+     #input{
+        color:white;
+        background-color: #04041c;
+        border:none;
+        border-bottom:1px solid #616091;
+        border-left: 1px solid #616091;
+         }
+    #btn{
+        border:none;
+        border-radius: 8px;
+        background-color: #b4b3d8;
+         }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>To Do List</h1>
+    </div>
+    <div id="container">
+       <input type="text" id="input" placeholder="Enter your text here">
+       &nbsp;   &nbsp;   &nbsp;
+       <button id="btn">AddToDo</button>
+       <ul class="ul" style="list-style-type: none;">
+    </ul>
+    </div>
+    </body>
+    <script>
+        document.getElementById('btn').addEventListener('click',
+        function()
+        {
+            let input=document.getElementById('input').value;
+            //to do list elements
+            let element=document.createElement('li');
+            let botton1=document.createElement('button');
+            let botton2=document.createElement('button');
+            botton1.innerText="Done";
+            botton2.innerText="Delete";
+            let ul=document.querySelector('ul');
+            //Append
+            ul.appendChild(element);
+            element.appendChild(botton1);
+            element.appendChild(botton2);
+            botton1.style.border="none";
+            botton1.style.marginLeft="3%";
+            botton1.style.borderRadius="8px";
+            botton1.style.backgroundColor="#b4b3d8";
+            botton2.style.border="none";
+            botton2.style.marginLeft="3%";
+            botton2.style.borderRadius="8px";
+            botton2.style.backgroundColor="#b4b3d8";
+            botton1.addEventListener('click',
+            function()
+            {
+                element.style.textDecoration="line-through";
+            });
+            botton2.addEventListener('click',
+            function()
+            {
+                element.remove();
+            });
+            document.getElementById('input').value="";
+       });
+    </script>
+</html>
